@@ -5,6 +5,7 @@
     <% @lists.each do |list| %>
       <li><%= list.name %> -
       <%= link_to 'Details', list_path(list) %></li>
+      <%= link_to "delete", list_path(list), data: {turbo_method: :delete} %>
     <% end %>
   </ul>
 </div>

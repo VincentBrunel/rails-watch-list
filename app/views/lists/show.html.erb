@@ -4,10 +4,9 @@
 <%= link_to 'Add bookmark', new_list_bookmark_path(@list.id) %>
 
 <ul>
-  <% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <li> <%= movie.title %> - <%= movie.overview %> 
-    <%= link_to 'Delete bookmark', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list" } %>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li> <%= bookmark.movie.title %> - <%= bookmark.movie.overview %> 
+    <%= link_to 'Delete bookmark', bookmark_path(bookmark), data: { turbo_method: :delete , turbo_confirm: "Are you sure?"} %>
 </li>
   <% end %>
 
